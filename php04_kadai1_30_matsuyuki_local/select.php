@@ -11,6 +11,8 @@ loginCheck();
 $user_name=$_SESSION['name'];
 //以下ログインユーザーのみ
 
+echo $_SESSION['kanri_flg'] ;
+$name =$_SESSION['name'] ;
 
 //1.  DB接続します
 $pdo=db_conn();
@@ -33,7 +35,7 @@ if($status==false) {
     $view .= "<p>";
     $view .= '<a href="detail.php?id='.$result["id"].'">'; //URLに自力でデータをくっつける
     $view .= 
-    h($result['indate']).':'.h($result['書籍名']).':'.h($result['書籍URL'].':'.h($result['書籍コメント']));  //$view .= "</p>".$result['indate'].':'.$result['name'].':'.$result['naiyou']."</p>"でも良い
+    h($result['name']).':'.h($result['indate']).':'.h($result['書籍名']).':'.h($result['書籍URL'].':'.h($result['書籍コメント']));  //$view .= "</p>".$result['indate'].':'.$result['name'].':'.$result['naiyou']."</p>"でも良い
     $view .= '</a>';
     $view .= '<a href="delete.php?id='.$result["id"].'">';
     $view .= '[削除]';
